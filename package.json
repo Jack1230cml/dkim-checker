@@ -1,0 +1,25 @@
+{
+  "name": "dkim-checker",
+  "version": "1.0.0",
+  "description": "Standalone DKIM checker — verify your DKIM public key matches the DNS TXT record.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node test/test.js"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "license": "MIT",
+  "keywords": [
+    "dkim",
+    "dns",
+    "email",
+    "spf",
+    "domainkeys",
+    "security"
+  ]
+}

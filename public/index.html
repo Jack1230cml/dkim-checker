@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DKIM Checker — verify your DKIM key against DNS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">DKIM<span class="dot">.</span></div>
+      <h1>DKIM <span class="accent">Checker</span></h1>
+      <p class="sub">
+        Verify your DKIM public key against the DNS TXT record — and confirm your private key matches the published key.
+      </p>
+    </header>
+
+    <form id="checkForm" class="card" autocomplete="off">
+      <div class="row">
+        <label for="domain">
+          <span class="lbl">Domain</span>
+          <input type="text" id="domain" placeholder="example.com" spellcheck="false" required />
+        </label>
+        <label for="selector">
+          <span class="lbl">Selector</span>
+          <input type="text" id="selector" placeholder="default" value="default" spellcheck="false" />
+        </label>
+      </div>
+
+      <details class="key-box">
+        <summary>Optionally paste a key to match <span class="muted">(public or private PEM)</span></summary>
+        <textarea id="key" rows="6" spellcheck="false"
+          placeholder="-----BEGIN RSA PRIVATE KEY-----&#10;...&#10;-----END RSA PRIVATE KEY-----"></textarea>
+        <p class="hint">
+          Paste a private or public key to verify it <em>matches</em> the key published in DNS. The private key is
+          never sent anywhere except your own server.
+        </p>
+      </details>
+
+      <button type="submit" id="submit">Check DKIM record</button>
+    </form>
+
+    <div id="result" class="hidden"></div>
+
+    <footer>
+      DKIM Checker · DNS lookup happens server-side · no keys are stored or logged
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
